@@ -1,0 +1,41 @@
+﻿@model PaineisSolares.Models.ViewModels.EquipamentoFormViewModel
+
+@{
+    ViewData["Title"] = "Editar equipamento";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Dados dos equipamentos</h4>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Equipamento.Id" />
+            <div class="form-group">
+                <label asp-for="Equipamento.Descricao" class="control-label"></label>
+                <input asp-for="Equipamento.Descricao" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Equipamento.Quantidade" class="control-label"></label>
+                <input asp-for="Equipamento.Quantidade" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Equipamento.ConsumoUnitario" class="control-label"></label>
+                <input asp-for="Equipamento.ConsumoUnitario" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Equipamento.HorasDeUso" class="control-label"></label>
+                <input asp-for="Equipamento.HorasDeUso" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Equipamento.AmbienteId" class="control-label"></label>
+                <select asp-for="Equipamento.AmbienteId"
+                        asp-items="@(new SelectList(Model.Ambientes, "Id", "Name"))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Alterar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
